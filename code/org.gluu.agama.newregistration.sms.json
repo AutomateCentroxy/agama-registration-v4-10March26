@@ -2420,8 +2420,8 @@
 			"id": "logNode-356e3f2f-d60e-4e7b-9f26-155aebda86d3",
 			"type": "logNode",
 			"position": {
-				"x": 7081.973063012128,
-				"y": 1370.8909386738871
+				"x": 7048.675263792052,
+				"y": 1439.864951344045
 			},
 			"data": {
 				"id": "logNode-356e3f2f-d60e-4e7b-9f26-155aebda86d3",
@@ -2455,8 +2455,8 @@
 			"id": "assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4",
 			"type": "assignmentNode",
 			"position": {
-				"x": 7275.385753203504,
-				"y": 1195.6579944569148
+				"x": 7303.926723963568,
+				"y": 1263.44280001207
 			},
 			"data": {
 				"id": "assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4",
@@ -3681,7 +3681,7 @@
 			"type": "assignmentNode",
 			"position": {
 				"x": 7564.9837329499505,
-				"y": 1363.9494083793134
+				"y": 1267.623632064093
 			},
 			"data": {
 				"id": "assignmentNode-0a451601-de8f-43bc-a03e-ab7fa1ff114e",
@@ -3716,18 +3716,18 @@
 			"dragging": false
 		},
 		{
-			"id": "finishNode-0d2da148-6375-46b7-8953-38647eab02a0",
+			"id": "finishNode-9d8ca841-4f9a-4ae5-96f3-effc7a281624",
 			"type": "finishNode",
 			"position": {
-				"x": 7981.860933309976,
-				"y": 1231.0133335162423
+				"x": 7814.9837329499505,
+				"y": 1267.623632064093
 			},
 			"data": {
-				"id": "finishNode-0d2da148-6375-46b7-8953-38647eab02a0",
+				"id": "finishNode-9d8ca841-4f9a-4ae5-96f3-effc7a281624",
 				"type": "finishNode",
 				"position": {
-					"x": 8049.427383763847,
-					"y": 1223.9422657043767
+					"x": 7814.9837329499505,
+					"y": 1267.623632064093
 				},
 				"previousNodeId": "assignmentNode-0a451601-de8f-43bc-a03e-ab7fa1ff114e",
 				"agamaData": {
@@ -3736,7 +3736,7 @@
 					"descColor": "",
 					"displayName": "Phone Number Already Exists",
 					"hasComment": true,
-					"comment": "Registration stopped because the phone number is already assigned to other user.",
+					"comment": "Registration stopped because the phone number is already assigned to an active user.",
 					"flowfilename": "",
 					"returnVariable": "it_phone_exists",
 					"finishMode": "withVariable",
@@ -3747,8 +3747,7 @@
 				"width": 170,
 				"height": 124
 			},
-			"selected": true,
-			"dragging": false
+			"selected": true
 		}
 	],
 	"edges": [
@@ -5547,25 +5546,6 @@
 			"targetHandle": "target_repeatNode-5fba5aae-4392-4ecc-ab5b-2d30cfc85e5e"
 		},
 		{
-			"source": "assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4",
-			"sourceHandle": "source_assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4",
-			"target": "finishNode-0d2da148-6375-46b7-8953-38647eab02a0",
-			"targetHandle": "target_finishNode-0d2da148-6375-46b7-8953-38647eab02a0",
-			"label": "",
-			"labelBgPadding": [
-				8,
-				4
-			],
-			"labelBgBorderRadius": 4,
-			"labelBgStyle": {
-				"fill": "#009688",
-				"color": "#ffffff",
-				"fillOpacity": 0.7
-			},
-			"id": "xy-edge__assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4source_assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4-finishNode-0d2da148-6375-46b7-8953-38647eab02a0target_finishNode-0d2da148-6375-46b7-8953-38647eab02a0",
-			"selected": false
-		},
-		{
 			"id": "assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4-assignmentNode-0a451601-de8f-43bc-a03e-ab7fa1ff114e",
 			"type": "default",
 			"source": "assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4",
@@ -5585,28 +5565,28 @@
 			"sourceHandle": "source_assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4"
 		},
 		{
-			"id": "assignmentNode-0a451601-de8f-43bc-a03e-ab7fa1ff114e-finishNode-0d2da148-6375-46b7-8953-38647eab02a0",
+			"id": "assignmentNode-0a451601-de8f-43bc-a03e-ab7fa1ff114e-finishNode-9d8ca841-4f9a-4ae5-96f3-effc7a281624",
 			"type": "default",
 			"source": "assignmentNode-0a451601-de8f-43bc-a03e-ab7fa1ff114e",
-			"target": "finishNode-0d2da148-6375-46b7-8953-38647eab02a0",
-			"label": "",
+			"target": "finishNode-9d8ca841-4f9a-4ae5-96f3-effc7a281624",
 			"labelBgPadding": [
 				8,
 				4
 			],
 			"labelBgBorderRadius": 4,
+			"label": "",
 			"labelBgStyle": {
 				"fill": "#009688",
 				"color": "#ffffff",
 				"fillOpacity": 0.7
 			},
-			"sourceHandle": "source_assignmentNode-0a451601-de8f-43bc-a03e-ab7fa1ff114e",
-			"targetHandle": "target_finishNode-0d2da148-6375-46b7-8953-38647eab02a0"
+			"labelShowBg": true,
+			"sourceHandle": "source_assignmentNode-0a451601-de8f-43bc-a03e-ab7fa1ff114e"
 		}
 	],
 	"viewport": {
-		"x": -4496.755786393033,
-		"y": -782.9809235657656,
-		"zoom": 0.7071067811865472
+		"x": -5409.97263588024,
+		"y": -876.7519138465991,
+		"zoom": 0.8408964152537144
 	}
 }
