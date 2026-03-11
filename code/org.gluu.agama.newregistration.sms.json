@@ -3695,9 +3695,9 @@
 					"nodeColor": "",
 					"titleColor": "",
 					"descColor": "",
-					"displayName": "",
+					"displayName": "Phone Number Already Exists",
 					"hasComment": true,
-					"comment": "",
+					"comment": "Registration stopped because the phone number is already assigned to other user.",
 					"flowfilename": "",
 					"returnVariable": "it_ootpmax",
 					"finishMode": "withVariable",
@@ -5526,8 +5526,8 @@
 		}
 	],
 	"viewport": {
-		"x": -2567.3644581724757,
-		"y": -430.5929419494115,
-		"zoom": 0.5
+		"x": -3703.7215283755877,
+		"y": -391.35474829301575,
+		"zoom": 0.5946035575013604
 	}
 }
