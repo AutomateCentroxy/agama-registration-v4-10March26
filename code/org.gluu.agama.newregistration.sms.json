@@ -2433,7 +2433,7 @@
 				"previousNodeId": "whenNode-de4a8b33-4ee2-4b81-8bb2-8b0682c0f114",
 				"branching": "otherwise",
 				"agamaData": {
-					"logMessage": "\"This phone is already used by another account. Please enter a different one.\"",
+					"logMessage": "\"This phone number already exists and is assigned to another account.\"",
 					"logLevel": "info",
 					"nodeIcon": "octicon:log-16",
 					"nodeColor": "",
@@ -3690,7 +3690,7 @@
 					"x": 8049.427383763847,
 					"y": 1223.9422657043767
 				},
-				"previousNodeId": "assignmentNode-a4bfd8dc-5482-41d2-9cca-d82e049270ba",
+				"previousNodeId": "assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4",
 				"agamaData": {
 					"nodeColor": "",
 					"titleColor": "",
@@ -3708,7 +3708,7 @@
 				"width": 170,
 				"height": 124
 			},
-			"selected": false
+			"selected": true
 		}
 	],
 	"edges": [
@@ -5505,11 +5505,29 @@
 			},
 			"sourceHandle": "source_logNode-8b28330c-a165-4c4c-9933-0917ffe98b01",
 			"targetHandle": "target_repeatNode-5fba5aae-4392-4ecc-ab5b-2d30cfc85e5e"
+		},
+		{
+			"source": "assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4",
+			"sourceHandle": "source_assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4",
+			"target": "finishNode-0d2da148-6375-46b7-8953-38647eab02a0",
+			"targetHandle": "target_finishNode-0d2da148-6375-46b7-8953-38647eab02a0",
+			"label": "",
+			"labelBgPadding": [
+				8,
+				4
+			],
+			"labelBgBorderRadius": 4,
+			"labelBgStyle": {
+				"fill": "#009688",
+				"color": "#ffffff",
+				"fillOpacity": 0.7
+			},
+			"id": "xy-edge__assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4source_assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4-finishNode-0d2da148-6375-46b7-8953-38647eab02a0target_finishNode-0d2da148-6375-46b7-8953-38647eab02a0"
 		}
 	],
 	"viewport": {
-		"x": -3770.5373865395577,
-		"y": -654.1475129093784,
-		"zoom": 0.5946035575013603
+		"x": -2567.3644581724757,
+		"y": -430.5929419494115,
+		"zoom": 0.5
 	}
 }
