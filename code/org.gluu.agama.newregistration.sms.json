@@ -2455,8 +2455,8 @@
 			"id": "assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4",
 			"type": "assignmentNode",
 			"position": {
-				"x": 7299.427383763847,
-				"y": 1223.9422657043767
+				"x": 7275.385753203504,
+				"y": 1195.6579944569148
 			},
 			"data": {
 				"id": "assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4",
@@ -3677,11 +3677,50 @@
 			"dragging": false
 		},
 		{
+			"id": "assignmentNode-0a451601-de8f-43bc-a03e-ab7fa1ff114e",
+			"type": "assignmentNode",
+			"position": {
+				"x": 7564.9837329499505,
+				"y": 1363.9494083793134
+			},
+			"data": {
+				"id": "assignmentNode-0a451601-de8f-43bc-a03e-ab7fa1ff114e",
+				"type": "assignmentNode",
+				"position": {
+					"x": 7549.427383763847,
+					"y": 1223.9422657043767
+				},
+				"previousNodeId": "assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4",
+				"agamaData": {
+					"assignments": [
+						{
+							"variableTypeCheck": true,
+							"assignmentExpression": "{ success: false, error: \"PhoneNumberAlreadyExists\" }",
+							"assignedVariableName": "it_phone_exists"
+						}
+					],
+					"nodeIcon": "material-symbols:equal",
+					"nodeColor": "",
+					"titleColor": "",
+					"descColor": "",
+					"displayName": "",
+					"hasComment": true,
+					"comment": ""
+				}
+			},
+			"measured": {
+				"width": 170,
+				"height": 124
+			},
+			"selected": false,
+			"dragging": false
+		},
+		{
 			"id": "finishNode-0d2da148-6375-46b7-8953-38647eab02a0",
 			"type": "finishNode",
 			"position": {
-				"x": 7549.427383763847,
-				"y": 1223.9422657043767
+				"x": 7981.860933309976,
+				"y": 1231.0133335162423
 			},
 			"data": {
 				"id": "finishNode-0d2da148-6375-46b7-8953-38647eab02a0",
@@ -3690,7 +3729,7 @@
 					"x": 8049.427383763847,
 					"y": 1223.9422657043767
 				},
-				"previousNodeId": "assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4",
+				"previousNodeId": "assignmentNode-0a451601-de8f-43bc-a03e-ab7fa1ff114e",
 				"agamaData": {
 					"nodeColor": "",
 					"titleColor": "",
@@ -3699,7 +3738,7 @@
 					"hasComment": true,
 					"comment": "Registration stopped because the phone number is already assigned to other user.",
 					"flowfilename": "",
-					"returnVariable": "it_ootpmax",
+					"returnVariable": "it_phone_exists",
 					"finishMode": "withVariable",
 					"nodeIcon": "material-symbols:line-end-square-rounded"
 				}
@@ -3708,7 +3747,8 @@
 				"width": 170,
 				"height": 124
 			},
-			"selected": true
+			"selected": true,
+			"dragging": false
 		}
 	],
 	"edges": [
@@ -5522,12 +5562,51 @@
 				"color": "#ffffff",
 				"fillOpacity": 0.7
 			},
-			"id": "xy-edge__assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4source_assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4-finishNode-0d2da148-6375-46b7-8953-38647eab02a0target_finishNode-0d2da148-6375-46b7-8953-38647eab02a0"
+			"id": "xy-edge__assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4source_assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4-finishNode-0d2da148-6375-46b7-8953-38647eab02a0target_finishNode-0d2da148-6375-46b7-8953-38647eab02a0",
+			"selected": false
+		},
+		{
+			"id": "assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4-assignmentNode-0a451601-de8f-43bc-a03e-ab7fa1ff114e",
+			"type": "default",
+			"source": "assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4",
+			"target": "assignmentNode-0a451601-de8f-43bc-a03e-ab7fa1ff114e",
+			"labelBgPadding": [
+				8,
+				4
+			],
+			"labelBgBorderRadius": 4,
+			"label": "",
+			"labelBgStyle": {
+				"fill": "#009688",
+				"color": "#ffffff",
+				"fillOpacity": 0.7
+			},
+			"labelShowBg": true,
+			"sourceHandle": "source_assignmentNode-f94cbc42-b86d-4ff1-b936-94b4275e30c4"
+		},
+		{
+			"id": "assignmentNode-0a451601-de8f-43bc-a03e-ab7fa1ff114e-finishNode-0d2da148-6375-46b7-8953-38647eab02a0",
+			"type": "default",
+			"source": "assignmentNode-0a451601-de8f-43bc-a03e-ab7fa1ff114e",
+			"target": "finishNode-0d2da148-6375-46b7-8953-38647eab02a0",
+			"label": "",
+			"labelBgPadding": [
+				8,
+				4
+			],
+			"labelBgBorderRadius": 4,
+			"labelBgStyle": {
+				"fill": "#009688",
+				"color": "#ffffff",
+				"fillOpacity": 0.7
+			},
+			"sourceHandle": "source_assignmentNode-0a451601-de8f-43bc-a03e-ab7fa1ff114e",
+			"targetHandle": "target_finishNode-0d2da148-6375-46b7-8953-38647eab02a0"
 		}
 	],
 	"viewport": {
-		"x": -3703.7215283755877,
-		"y": -391.35474829301575,
-		"zoom": 0.5946035575013604
+		"x": -4496.755786393033,
+		"y": -782.9809235657656,
+		"zoom": 0.7071067811865472
 	}
 }
