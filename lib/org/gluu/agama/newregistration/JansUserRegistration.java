@@ -565,18 +565,17 @@ public class JansUserRegistration extends NewUserRegistration {
                     // Load full profile
                     User fullUser = userService.getUserByAttribute("uid", u.getUserId(), true);
 
-                    Object statusObj = fullUser.getAttribute("jansStatus", true, false);
-                    String status = statusObj != null ? statusObj.toString() : null;
+                    boolean active = fullUser.isActive();
 
-                    logger.info("Found user {} with jansStatus {}", fullUser.getUserId(), status);
+                    logger.info("Found user {} active status {}", fullUser.getUserId(), active);
 
-                    if ("active".equalsIgnoreCase(status)) {
+                    if (active) {
 
                         logger.info("Phone {} already used by ACTIVE user {}", phone, fullUser.getUserId());
                         return false;
-                    }
+                        }
+                }
             }
-        }
 
             logger.info("Phone {} allowed (either not exists or user inactive)", phone);
             return true;
