@@ -578,7 +578,7 @@ public class JansUserRegistration extends NewUserRegistration {
 
                     logger.info("Found user {} with jansStatus {}", u.getUserId(), status);
 
-                    if ("active".equalsIgnoreCase(status)) {
+                    if (status == null || "active".equalsIgnoreCase(status)) {
 
                         logger.info("Phone {} already used by ACTIVE user {}", phone, u.getUserId());
                         return false;
