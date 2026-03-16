@@ -574,7 +574,7 @@ public class JansUserRegistration extends NewUserRegistration {
                         continue;
                     }
 
-                    String status = getCustomAttribute(u, "jansStatus");
+                    String status = getSingleValuedAttr(u, USER_STATUS);
 
                     logger.info("Found user {} with jansStatus {}", u.getUserId(), status);
 
