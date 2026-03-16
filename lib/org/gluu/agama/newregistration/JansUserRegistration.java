@@ -574,9 +574,11 @@ public class JansUserRegistration extends NewUserRegistration {
                         continue;
                     }
 
-                    String status = getSingleValuedAttr(u, USER_STATUS);
+                    User fullUser = userService.getUserByAttribute("uid", u.getUserId(), true);
 
-                    logger.info("Found user {} with jansStatus {}", u.getUserId(), status);
+                    String status = getSingleValuedAttr(fullUser, "jansStatus");
+
+                    logger.info("Found user {} with jansStatus {}", fullUser.getUserId(), status);
 
                     if (status == null || "active".equalsIgnoreCase(status)) {
 
