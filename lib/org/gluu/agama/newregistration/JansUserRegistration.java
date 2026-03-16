@@ -562,8 +562,8 @@ public class JansUserRegistration extends NewUserRegistration {
                         continue;
                     }
 
-                    // String status = getSingleValuedAttr(u, USER_STATUS);
-                    String status = null;
+                    String status = getSingleValuedAttr(u, USER_STATUS);
+                    // String status = null;
                     CustomObjectAttribute customAttribute = userService.getCustomAttribute(u, USER_STATUS);
                     if (customAttribute != null) {
                         status = customAttribute.getValue();
