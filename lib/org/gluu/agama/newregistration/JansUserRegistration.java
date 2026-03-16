@@ -537,6 +537,18 @@ public class JansUserRegistration extends NewUserRegistration {
         }
     }
 
+    private String getCustomAttribute(User user, String attributeName) {
+        UserService userService = CdiUtil.bean(UserService.class);
+
+        CustomObjectAttribute customAttribute = userService.getCustomAttribute(user, attributeName);
+
+        if (customAttribute != null) {
+            return customAttribute.getValue();
+        }
+
+        return null;
+    }
+
 
     public boolean isPhoneUnique(String username, String phone) {
         try {
