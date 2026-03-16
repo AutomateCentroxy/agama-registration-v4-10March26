@@ -555,30 +555,28 @@ public class JansUserRegistration extends NewUserRegistration {
             logger.info("LDAP search result size: {}", users != null ? users.size() : "NULL");
 
             if (users != null && !users.isEmpty()) {
+
                 for (User u : users) {
 
-                    // Skip same user (important for updates)
                     if (u.getUserId().equalsIgnoreCase(username)) {
                         continue;
                     }
 
-                    User fullUser = userService.getUserByAttribute(UID, u.getUserId(), true);
-                    String status = getSingleValuedAttr(fullUser, USER_STATUS);
-                    // String status = getSingleValuedAttr(u, USER_STATUS);
-                    // String status = null;
-                    // CustomObjectAttribute customAttribute = userService.getCustomAttribute(u, USER_STATUS);
-                    // if (customAttribute != null) {
-                    //     status = customAttribute.getValue();
-                    // }
-                    logger.info("Found user {} with status {}", u.getUserId(), status);
+                    // Load full profile
+                    User fullUser = userService.getUserByAttribute("uid", u.getUserId(), true);
 
-                    // 🔥 ONLY block if user is ACTIVE
+                    Object statusObj = fullUser.getAttribute("jansStatus", true, false);
+                    String status = statusObj != null ? statusObj.toString() : null;
+
+                    logger.info("Found user {} with jansStatus {}", fullUser.getUserId(), status);
+
                     if ("active".equalsIgnoreCase(status)) {
-                        logger.info("Phone {} already used by ACTIVE user {}", phone, u.getUserId());
+
+                        logger.info("Phone {} already used by ACTIVE user {}", phone, fullUser.getUserId());
                         return false;
                     }
-                }
             }
+        }
 
             logger.info("Phone {} allowed (either not exists or user inactive)", phone);
             return true;
