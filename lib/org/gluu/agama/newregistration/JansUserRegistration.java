@@ -537,6 +537,18 @@ public class JansUserRegistration extends NewUserRegistration {
         }
     }
 
+    private String getCustomAttribute(User user, String attributeName) {
+        UserService userService = CdiUtil.bean(UserService.class);
+
+        CustomObjectAttribute customAttribute = userService.getCustomAttribute(user, attributeName);
+
+        if (customAttribute != null) {
+            return customAttribute.getValue();
+        }
+
+        return null;
+    }
+
 
     public boolean isPhoneUnique(String username, String phone) {
         try {
@@ -555,25 +567,33 @@ public class JansUserRegistration extends NewUserRegistration {
             logger.info("LDAP search result size: {}", users != null ? users.size() : "NULL");
 
             if (users != null && !users.isEmpty()) {
+
                 for (User u : users) {
 
-                    // Skip same user (important for updates)
                     if (u.getUserId().equalsIgnoreCase(username)) {
                         continue;
                     }
 
-                    // String status = getSingleValuedAttr(u, USER_STATUS);
-                    String status = null;
-                    CustomObjectAttribute customAttribute = userService.getCustomAttribute(u, USER_STATUS);
-                    if (customAttribute != null) {
-                        status = customAttribute.getValue();
-                    }
-                    logger.info("Found user {} with status {}", u.getUserId(), status);
+                    // User fullUser = userService.getUserByAttribute("uid", u.getUserId(), true);
 
-                    // 🔥 ONLY block if user is ACTIVE
-                    if ("active".equalsIgnoreCase(status)) {
+                    User fullUser = userService.getUser(u.getUserId(), "uid", "jansStatus");
+
+                    logger.info("Direct getStatus() = {}", fullUser.getStatus());
+                    logger.info("getAttribute jansStatus = {}", fullUser.getAttribute("jansStatus", true, false));
+                    logger.info("getCustomAttribute jansStatus = {}", 
+                        userService.getCustomAttribute(fullUser, "jansStatus") != null 
+                            ? userService.getCustomAttribute(fullUser, "jansStatus").getValue() 
+                            : "NULL");
+
+                    String status = getSingleValuedAttr(fullUser, "jansStatus");
+
+                    logger.info("Found user {} with jansStatus {}", fullUser.getUserId(), status);
+
+                    if (status == null || "active".equalsIgnoreCase(status)) {
+
                         logger.info("Phone {} already used by ACTIVE user {}", phone, u.getUserId());
                         return false;
+
                     }
                 }
             }
@@ -587,16 +607,40 @@ public class JansUserRegistration extends NewUserRegistration {
         }
     }
 
+    // private String getSingleValuedAttr(User user, String attribute) {
+    //     Object value = null;
+    //     if (attribute.equals(UID)) {
+    //         //user.getAttribute("uid", true, false) always returns null :(
+    //         value = user.getUserId();
+    //     } else {
+    //         value = user.getAttribute(attribute, true, false);
+    //     }
+    //     return value == null ? null : value.toString();
+
+    // }
+
     private String getSingleValuedAttr(User user, String attribute) {
         Object value = null;
+
         if (attribute.equals(UID)) {
-            //user.getAttribute("uid", true, false) always returns null :(
             value = user.getUserId();
+        } else if (attribute.equals("jansStatus")) {
+            // jansStatus is a first-class field on User — read it directly
+            value = user.getStatus() != null ? user.getStatus().getValue() : null;
         } else {
             value = user.getAttribute(attribute, true, false);
         }
-        return value == null ? null : value.toString();
 
+        // Final fallback: try custom attribute path
+        if (value == null) {
+            UserService userService = CdiUtil.bean(UserService.class);
+            CustomObjectAttribute customAttr = userService.getCustomAttribute(user, attribute);
+            if (customAttr != null) {
+                value = customAttr.getValue();
+            }
+        }
+
+        return value == null ? null : value.toString();
     }
 
     private static User getUser(String attributeName, String value) {
